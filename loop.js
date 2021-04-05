@@ -1,8 +1,7 @@
 
 import puppeteer from 'puppeteer';
 
-const DATA_USERNAME = process.env.DATA_USERNAME;
-const DATA_PASSWORD = process.env.DATA_PASSWORD;
+
 
 const URL_LOGIN = 'https://newsso.shu.edu.cn/login/eyJ0aW1lc3RhbXAiOjE2MDM0Mzc2MjI0MDk1NTMxODQsInJlc3BvbnNlVHlwZSI6ImNvZGUiLCJjbGllbnRJZCI6IldVSFdmcm50bldZSFpmelE1UXZYVUNWeSIsInNjb3BlIjoiMSIsInJlZGlyZWN0VXJpIjoiaHR0cHM6Ly9zZWxmcmVwb3J0LnNodS5lZHUuY24vTG9naW5TU08uYXNweD9SZXR1cm5Vcmw9JTJmRGVmYXVsdC5hc3B4Iiwic3RhdGUiOiIifQ==';
 const URL_REPORT = 'http://selfreport.shu.edu.cn/DayReport.aspx';
@@ -19,6 +18,8 @@ const TITLE_REDIRECTION_FAIL = '健康之路';
 const TEXT_SUCCESS = '提交成功';
 
 export default async () => {
+  const DATA_USERNAME = process.env.DATA_USERNAME;
+  const DATA_PASSWORD = process.env.DATA_PASSWORD;
   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-dev-shm-usage'] });
   const page = await browser.newPage();
   const frame = page.mainFrame();
